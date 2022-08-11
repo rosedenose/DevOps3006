@@ -1,0 +1,9 @@
+properties([pipelineTriggers([pollSCM('H * * * *')])])
+node{
+    stage("clone"){
+        git "https://github.com/rosedenose/DevOps3006.git"
+    }
+    stage("show files"){
+        bat "dir"
+    }
+}
