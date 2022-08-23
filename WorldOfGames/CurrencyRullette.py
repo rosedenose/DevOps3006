@@ -41,6 +41,7 @@ def play(difficulty):
     dollar = lines['usd']
     conversion = dollar['ils']
     in_dollar = random.choice(range(100))
+    print(f"the sum is {in_dollar}$\n")
     guess = get_guess_from_user()
     in_shekel = in_dollar * conversion
     if (in_shekel - interval) < guess < (in_shekel + interval):

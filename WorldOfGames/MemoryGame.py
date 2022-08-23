@@ -55,6 +55,8 @@ def get_list_from_user(difficulty):
 def is_list_equal(numbers, guess_list):
     score = 0
     if type(guess_list) == int:
+        if guess_list in numbers:
+            score = 1
         if score == 1:
             return True
         else:
