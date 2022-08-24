@@ -2,7 +2,7 @@ import re
 
 
 def add_score(difficulty, name):
-    updated = []
+    updated_score = []
     newfile = 0
     scores = []
     try:
@@ -15,16 +15,14 @@ def add_score(difficulty, name):
             if name in str(line):
                 score = re.sub(name, "", line)
                 score = int(score.strip()) + difficulty * 3 + 5
-                updated.append(f"{name} {score}\n")
+                updated_score.append(f"{name} {score}\n")
                 print(f"{name} has {score} points")
                 score_found = 1
             else:
-                updated.append(line)
+                updated_score.append(line)
         scores.close()
-
     if score_found == 0 or newfile == 1:
-        updated.append(str(f"{name} {difficulty * 3 + 5}\n"))
-
-    updated = ''.join(map(str, updated))
+        updated_score.append(str(f"{name} {difficulty * 3 + 5}\n"))
+    updated_score = ''.join(map(str, updated_score))
     update = open("scores.txt", "w+")
-    update.write(updated)
+    update.write(updated_score)
